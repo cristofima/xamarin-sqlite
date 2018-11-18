@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿using System.Diagnostics;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -15,6 +10,20 @@ namespace AppSQlite.Views
         public ItemsListPage()
         {
             InitializeComponent();
+        }
+
+        protected override void OnAppearing()
+        {
+            // Replace with your code…
+            Debug.WriteLine("ItemsListPage OnAppearing");
+            base.OnAppearing();
+        }
+
+        protected override void OnDisappearing()
+        {
+            // Replace with your code…
+            Debug.WriteLine("ItemsListPage OnDisappearing");
+            base.OnDisappearing();
         }
     }
 }

@@ -70,7 +70,6 @@ namespace AppSQlite.ViewModel
         {
             await _sqliteService.SaveItemAsync(Item);
             DependencyService.Get<IMessage>().ShortAlert($"Tarea {Item.Name} guardada");
-            MainViewModel.GetInstance().ItemsList.ResetList();
             await Application.Current.MainPage.Navigation.PopAsync();
         }
 
@@ -99,8 +98,6 @@ namespace AppSQlite.ViewModel
             {
                 await _sqliteService.DeleteItemAsync(Item);
                 DependencyService.Get<IMessage>().ShortAlert($"Tarea {Item.Name} eliminada");
-                MainViewModel.GetInstance().ItemsList.ResetList();
-
                 await Application.Current.MainPage.Navigation.PopAsync();
             }
         }

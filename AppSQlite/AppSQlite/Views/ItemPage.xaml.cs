@@ -1,6 +1,4 @@
-﻿using AppSQlite.Models;
-using AppSQlite.ViewModel;
-
+﻿using System.Diagnostics;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -12,6 +10,21 @@ namespace AppSQlite.Views
         public ItemPage()
         {
             InitializeComponent();
+        }
+
+        protected override void OnAppearing()
+        {
+            // Replace with your code…
+            Debug.WriteLine("ItemPage OnAppearing");
+            base.OnAppearing();
+        }
+
+        protected override void OnDisappearing()
+        {
+            // Replace with your code…
+            Debug.WriteLine("ItemPage OnDisappearing");
+            MessagingCenter.Send(this, "ResetListTask");
+            base.OnDisappearing();
         }
     }
 }

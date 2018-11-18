@@ -7,7 +7,7 @@
              Title="Tareas">
     <ContentPage.ToolbarItems>
         <ToolbarItem 
-            Name="Add"
+            Name="Añadir"
             Command="{Binding ItemsList.AddCommand}">
             <ToolbarItem.Icon>
                 <OnPlatform x:TypeArguments="FileImageSource">

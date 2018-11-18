@@ -9,15 +9,15 @@
         VerticalOptions="StartAndExpand"
         Padding="20">
             <Label
-            Text="Name" />
+            Text="Nombre" />
             <Entry
             Text="{Binding Item.Name}"/>
             <Label
-            Text="Notes" />
+            Text="Notas" />
             <Entry
             Text="{Binding Item.Notes}"/>
             <Label
-            Text="Done" />
+            Text="Realizado" />
             <Switch
             x:Name="DoneEntry"
             IsToggled="{Binding Item.Done}"/>
@@ -34,14 +34,15 @@
                 </ListView.ItemTemplate>
             </ListView>
             <Button
-            Text="Save"
+            Text="Guardar"
             Command="{Binding SaveCommand}"/>
             <Button
-            Text="Delete"
+                Style="{StaticResource DangerButtonStyle}"
+            Text="Eliminar"
              IsVisible="{Binding IsVisibleDelete}"
             Command="{Binding DeleteCommand}"/>
             <Button
-            Text="Cancel"
+            Text="Cancelar"
             Command="{Binding CancelCommand}"/>
         </StackLayout>
     </ContentPage.Content>
