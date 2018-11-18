@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppSQlite.Views.ItemsListPage"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             x:Name="rootElement"
+             Title="Tareas">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem 
+            Name="Add"
+            Command="{Binding ItemsList.AddCommand}">
+            <ToolbarItem.Icon>
+                <OnPlatform x:TypeArguments="FileImageSource">
+                    <On Platform="Android, iOS" Value="plus" />
+                    <On Platform="UWP" Value="Assets/plus.png" />
+                </OnPlatform>
+            </ToolbarItem.Icon>
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout  BindingContext="{Binding ItemsList}">
+            <ListView
+                BackgroundColor="Silver"
+                HasUnevenRows="true" 
+        ItemsSource="{Binding Items}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame
+                                CornerRadius="20"
+                                HasShadow="true"
+                                Margin="5">
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding SelectItemCommand}"/>
+                                </Frame.GestureRecognizers>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <StackLayout
+                                        Grid.Column="0">
+                                        <Label    
+                                        TextColor="Black"
+                                         FontAttributes="Bold"
+                                        Text="{Binding Name}"  />
+                                        <Label 
+                                        TextColor="Black"
+                                        Text="{Binding Notes}"
+                                          FontSize="Micro"
+                                          FontAttributes="Italic" />
+                                    </StackLayout>
+                                    <Image 
+                                         Grid.Column="1"
+                                HorizontalOptions="End"
+                                IsVisible="{Binding Done}">
+                                        <Image.Source>
+                                            <OnPlatform x:TypeArguments="ImageSource">
+                                                <On Platform="Android, iOS" Value="check" />
+                                                <On Platform="UWP" Value="Assets/check.png" />
+                                            </OnPlatform>
+                                        </Image.Source>
+                                    </Image>
+                                </Grid>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
