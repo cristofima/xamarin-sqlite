@@ -10,6 +10,19 @@
             <!-- Parameters -->
             <infra:InstanceLocator x:Key="Locator"/>
 
+            <!-- Button -->
+
+            <Style TargetType="Button">
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="BorderRadius" Value="23" />
+                <Setter Property="Margin" Value="50,0,50,0" />
+                <Setter Property="BackgroundColor" Value="Navy" />
+            </Style>
+
+            <Style x:Key="DangerButtonStyle" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="Red" />
+            </Style>
+
         </ResourceDictionary>
     </Application.Resources>
 </Application>
